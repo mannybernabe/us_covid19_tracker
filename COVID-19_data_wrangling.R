@@ -49,5 +49,8 @@ covid19_us_tbl <- covid19_country_tbl %>%
   filter(`Country/Region`=="US")
 
 
+write.csv(covid19_us_tbl,'COVID-19_US_data.csv')
+
+
 
 
