@@ -10,7 +10,7 @@ raw_covid19_tbl <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/CO
 
 covid19_tbl<- raw_covid19_tbl %>% 
   mutate(`Province/State` = ifelse(is.na(`Province/State`), `Country/Region`, `Province/State`)) %>% 
-  gather(names(covid19)[5:ncol(covid19)], key = "date_time", value = "total_cases") %>% 
+  gather(names(raw_covid19_tbl)[5:ncol(raw_covid19_tbl)], key = "date_time", value = "total_cases") %>% 
   filter(complete.cases(.)) %>% 
   mutate(date_time = mdy(date_time, tz = "America/Chicago")) %>% 
   group_by(`Province/State`) %>% 
